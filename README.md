@@ -1,4 +1,26 @@
 # Ad-user-to-group
+Gui user group script
+
+$groups=get-adgroup -filter * |select -exp name |Out-GridView -Title  'choose a group' -PassThru
+$users=get-aduser -filter * |select -exp Name |Out-GridView -Title  'choose a user' -PassThru
+ForEach($group in $groups){
+ForEach($user in $users){
+ Add-ADGroupMember -Identity $group -Members $user -verbose
+ }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 script to add user to group
 
 $group=read-host 'Enter Group name'
